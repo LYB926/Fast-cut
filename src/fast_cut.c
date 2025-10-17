@@ -122,7 +122,13 @@ int main(int argc, char **argv) {
     gtk_grid_attach(GTK_GRID(grid), preset_label, 0, 3, 1, 1);
 
     app->preset_combo = gtk_combo_box_text_new();
-    const gchar *presets[] = { "p1", "p2", "p3", "p4", "p5", "p6", "p7" };
+    // for nvenc
+    const gchar *presets[] = { "p1", "p2", "p3", "p4", "p5", "p6", "p7" }; // for nvenc
+    // for amf
+    //const gchar *presets[] = { "0", "1", "2", "3", "4", "5", "6", "7" }; // for amf
+    // for qsv
+    //const gchar *presets[] = { "veryfast", "faster", "fast", "medium", "slow", "slower", "veryslow"}; // for qsv
+
     for (size_t i = 0; i < G_N_ELEMENTS(presets); ++i) {
         gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(app->preset_combo), presets[i]);
     }
@@ -562,10 +568,10 @@ static gchar **build_ffmpeg_argv(const gchar *input_path, const gchar *start_tim
     argv[idx++] = g_strdup(input_path);
     argv[idx++] = g_strdup("-c:v");
     argv[idx++] = g_strdup("hevc_nvenc");
+    //argv[idx++] = g_strdup("hevc_amf");
     //argv[idx++] = g_strdup("hevc_qsv");
     argv[idx++] = g_strdup("-preset");
     argv[idx++] = g_strdup(preset);
-    //argv[idx++] = g_strdup("veryslow");
     argv[idx++] = g_strdup(output_path);
     argv[idx] = NULL;
     return argv;
