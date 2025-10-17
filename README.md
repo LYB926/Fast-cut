@@ -1,6 +1,6 @@
 ﻿# Fast Cut
 
-Fast Cut 是一款小巧的、基于 GTK 的辅助工具，它封装了 ffmpeg 命令，用于从视频中剪辑片段，并使用 hevc_nvenc 进行重新编码。
+Fast Cut 是一款小巧的、基于 GTK 的辅助工具，它封装了 ffmpeg 命令，用于从视频中剪辑片段，并使用 hevc_nvenc/hevc_amf/hevc_qsv 进行重新编码。
 
 Fast Cut is a small GTK-based helper that wraps an ffmpeg command for cutting a segment from a video and re-encoding it with `hevc_nvenc`.
 
@@ -65,3 +65,4 @@ The script stores the executable at `build\fast_cut.exe`.
 ```
 
 Make sure GPU drivers and ffmpeg NVENC binaries are installed so the `hevc_nvenc` encoder can be used successfully.
+
